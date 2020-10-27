@@ -1,0 +1,267 @@
+<html>
+    <head>
+        <!-- 부트스트랩 -->
+        <link rel="stylesheet" href="./../src/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="./../src/css/styles.css">
+        <!-- 제이쿼리 -->
+        <script type="text/javascript" src="./../src/js/jquery-2.2.1.js"></script>
+        <script type="text/javascript" src="./../src/js/jquery.easing.1.3.js"></script> 
+        <!-- 스크롤 매직 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+        <script src="./../src/js/ScrollMagic.min.js"></script>
+        <script src="./../src/js/TweenMax.min.js"></script>
+        <script src="./../src/js/animation.gsap.min.js"></script>
+        <script src="./../src/js/debug.addIndicators.min.js"></script>
+        <script src="./../src/js/demo.js"></script>  
+        <style>
+            .icon {
+                width: 140px;
+                height: 140px;
+                color: #fff;
+                background-color: #999;
+                border-radius: 100%;
+            }
+            .js-stagger{
+                height: 120px;
+            }
+            .js-toggle{
+                font-size: 45px;
+		        color: black;
+            }
+            .active{
+                background-color: black;
+                color: white;
+            }
+            .text-wrap{
+                opacity: 0;padding: 4rem 0 0 5rem;top: 0; left: 0;transition:all 0.3s linear;
+            }
+            .visible{
+                opacity: 1;
+            }
+            .js-carousel{
+                top: 0px;	
+                left: 0px;
+                transition: all .3s;
+                height: 100%;
+                position: absolute;
+                z-index: 0;
+            }
+            .nav-bg{
+                width: 0;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                background: #0055b8;
+                border-radius: 20px;
+                transition: left .3s ease-in-out,width .3s ease-in-out;
+                height: 40px;
+
+            }
+            .perspective{
+                perspective: 1000;
+                -webkit-perspective: 1000;
+            }
+            .zIndex{
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="col-12" style="height: 400px;"></div>
+        <div class="col-12" id="js-trigger">
+            <div class="row">
+                <div class="col-auto icon js-trigger"></div>
+            </div>
+        </div>
+        <div class="col-12" style="height: 400px;"></div>
+        <div class="col-12 vh-100 perspective" id="js-stagger">
+            <div class="row h-100 ">
+                <div class="col-12 bg-black js-stagger"></div>
+                <div class="col-12 bg-danger js-stagger"></div>
+                <div class="col-12 bg-warning js-stagger"></div>
+                <div class="col-12 bg-primary js-stagger"></div>
+            </div>
+        </div>
+        <div class="col-12" style="height: 1400px;"></div>
+        <div class="col-12" style="height: 100vh;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <ul class="position-absolute" style="top:200%" id="nav">
+                            <li>하트</li>
+                            <li>별</li>
+                            <li>꽃</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-12 mb--3 js-toggleWrap" id="js-toggle01">
+                    <div class="row justify-content-center">
+                        <div class="col-auto js-toggle js-toggle01">♥︎</div>
+                        <div class="col-auto icon positon-absolute" id="pin1"></div>
+                    </div>
+                </div>
+                <div class="col-12 mb--3 js-toggleWrap" id="js-toggle02">
+                    <div class="row justify-content-center">
+                        <div class="col-auto js-toggle js-toggle02">★</div>
+                    </div>
+                </div>
+                <div class="col-12 js-toggleWrap" id="js-toggle03">
+                    <div class="row justify-content-center">
+                        <div class="col-auto js-toggle js-toggle03">✿</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-12" style="height: 1400px;"></div>
+        <div class="col-12">
+            <div class="row h-100">
+                <div class="col-12 h-100 main">
+                    <div class="row w-100 h-100 justify-content-center align-items-center positon-absolute">
+                        <div class="col h-100 overflow-hidden d-flex align-items-center justify-content-center positon-absolute img-wrap" style="width: 70vw; transition:all 0.3s linear;">
+                            <div class="row h-100">
+                                <div class="col-12 px-0">
+                                    <div class="d-flex align-self-start" id="trigger1"></div>
+                                    <img class="w-100 h-100 pic" style="object-fit: cover;" src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ"/>
+                                    <div class="positon-absolute text-wrap">
+                                        <h1>Hello Picture</h1><span>4140801-50d01698950b?ixlib=rb-1.2.1&q=</span>
+                                    </div>                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row w-100 h-100 justify-content-center align-items-center positon-absolute">
+                        <div class="col vw-100 h-100 overflow-hidden d-flex align-items-center justify-content-center positon-absolute">
+                            <div class="row h-100">
+                                <div class="col-12 px-0 slide" style="transition: all .3s;">
+                                    <div class="d-flex align-self-start;" id="trigger2"></div>
+                                    <img class="w-100 h-100 pic" style="object-fit: cover;" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ"/>                                  
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12" style="height: 1400px;"></div>
+        <div class="col-12 vh-100" >
+            <div class="row vh-100" >
+                <div class="col-12 vw-100 h-100" id="js-carousel" style="padding-top: 60px;">
+                    <div class="row h-100">
+                        <div class="col-12 h-100 overflow-hidden">
+                            <div class="row h-100 perspective">
+                                <div class="col-12 js-carousel-nav">
+                                    <div class="row h-100">
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100 align-items-start justify-content-center">
+                                                <div class="col-auto text-black">
+                                                    <div class="row">
+                                                        <div class="col-12 positon-relative navbar">
+                                                            <div class="col-auto icon positon-absolute nav-bg"></div>
+                                                            <a class="nav-link active">text1</a>
+                                                            <a class="nav-link">text2</a>
+                                                            <a class="nav-link">text3</a>              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                    
+                                    </div>
+                                </div>
+                                <div class="col-12 js-carousel js-carousel01" style="z-index: 3;">
+                                    <div class="row h-100">
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100 align-items-center justify-content-center">
+                                                <div class="col-auto overflow-hidden">
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex align-self-end positon-absolute carousel-text" style="height: 1px; bottom: 1px; background-color: aqua;"></div>
+                                                        <div class="col-auto text-black  text border">
+                                                            <div class="row">
+                                                                <div class="col-12">text1</div>
+                                                                <div class="col-12">text1</div>
+                                                                <div class="col-12">text1</div>                
+                                                            </div>
+                                                        </div>                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100">
+                                                <div class="col-12 h-100 bg-black img">
+                                                </div>
+                                            </div>
+                                        </div>                        
+                                    </div>
+                                </div>
+                                <div class="col-12 js-carousel js-carousel02" style="z-index: 2;">
+                                    <div class="row h-100">
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100 align-items-center justify-content-center">
+                                                <div class="col-auto overflow-hidden">
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex align-self-end positon-absolute carousel-text" style="height: 1px; bottom: 1px; background-color: aqua;"></div>
+                                                        <div class="col-auto text">
+                                                            <div class="row">
+                                                                <div class="col-12">text2</div>
+                                                                <div class="col-12">text2</div>
+                                                                <div class="col-12">text2</div>                
+                                                            </div>
+                                                        </div>                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100">
+                                                <div class="col-12 h-100 bg-primary img">
+                                                </div>
+                                            </div>
+                                        </div>                        
+                                    </div>
+                                </div>   
+                                <div class="col-12 js-carousel js-carousel03">
+                                    <div class="row h-100">
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100 align-items-center justify-content-center">
+                                                <div class="col-auto overflow-hidden">
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex align-self-end positon-absolute carousel-text" style="height: 1px; bottom: 1px; background-color: aqua;"></div>
+                                                        <div class="col-auto text">
+                                                            <div class="row">
+                                                                <div class="col-12">text3</div>
+                                                                <div class="col-12">text3</div>
+                                                                <div class="col-12">text3</div>                
+                                                            </div>
+                                                        </div>                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="row h-100">
+                                                <div class="col-12 h-100 bg-danger img">
+                                                </div>
+                                            </div>
+                                        </div>                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+           
+            </div>                       
+        </div>
+        <div class="col-12" style="height: 1400px;"></div>
+    </main>
+    </body>
+</html>
