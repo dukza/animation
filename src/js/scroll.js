@@ -58,7 +58,7 @@
                 elemA_translateY_down: [1, 1,{ start: 0.1, end: 0.3 }],
                 elemA_scale_down: [1, 0.7,{ start: 0.1, end: 0.3 }],
                 elemA_opacity_down: [1, 0,{ start: 0.1, end: 0.3 }],
-                elemC_scale_down: [1, 1.4,{ start: 0.1, end: 0.3 }],
+                elemC_scale_down: [1, 1.2,{ start: 0.1, end: 0.3 }],
             }
         },   
         {

@@ -433,7 +433,9 @@ body{
 .justify{
     @include justifyStyle()
 }
-
+.overflow-hidden{
+    overflow: hidden;
+}
 //버튼
 .btn{
     display: inline-block;

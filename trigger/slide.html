@@ -92,7 +92,6 @@
                         transition: all 0.4s;
                     }
                     #slide .textWrap .elem .a,#slide .textWrap .elem .tab,#slide .textWrap .elem .c,#slide .textWrap .elem .d{
-
                         display: flex;
                         align-items: center;
                     }
@@ -110,20 +109,23 @@
                         text-align: center;
                         min-height: 45vh;
                     }
+                    
                     #slide .imgWrap .elem{
                         display: flex;
                         align-items: center;
                         justify-content: center;
                     } 
-
+                    #slide .imgWrap img{
+                        height: 100%;
+                    } 
                     #seivice-fms .contain{
-                        height: 100vh;
+                        /* height: 100vh; */
                         transition: position 0.4s;
                     }
                     #seivice-fms .sParticle{
                         position: absolute;
                         top:50%;
-                        margin-top: -75%; 
+                        /* margin-top: -75%;  */
                         z-index: -2;
                         transform-origin: bottom center;
                     }
@@ -153,7 +155,7 @@
                     } */
                     #seivice-fms .icon{
                         position: absolute;
-                        box-shadow:0 8px 16px 0 rgba(0,0,0,0.05),0 8px 16px 0 rgba(34, 26, 26, 0.05) !important;
+                        box-shadow:0 8px 16px 0 rgba(0,0,0,0.1),0 8px 16px 0 rgba(34, 26, 26, 0.1) !important;
                         background-size: cover;
                         background-repeat: no-repeat;
                     }
@@ -173,7 +175,7 @@
                         border-radius: .8vw;
                     }
                     #seivice-fms .icon01{
-                        top: 0%;
+                        top: 10%;
                         left: 0%;
                         background-image: url(./../assets/slide/home-fms-icon03.png);
                     }
@@ -183,20 +185,20 @@
                         background-image: url(./../assets/slide/home-fms-icon01.png);
                     }
                     #seivice-fms .icon03{
-                        top: 10%;
+                        top: 5%;
                         left: 30%;
                         background-image: url(./../assets/slide/home-fms-icon05.png);
 
                     }
                     #seivice-fms .icon04{
-                        top: 25%;
-                        right: 25%;
+                        top: 20%;
+                        right: 20%;
                         background-image: url(./../assets/slide/home-fms-icon02.png);
 
                     }
                     #seivice-fms .icon05{
-                        bottom: 15%;
-                        right: 15%;
+                        bottom: 10%;
+                        right: 10%;
                         background-image: url(./../assets/slide/home-fms-icon08.png);
 
                     }
@@ -206,28 +208,25 @@
                         background-image: url(./../assets/slide/home-fms-icon04.png);
                     }
                     #seivice-fms .icon07{
-                        bottom: 10%;
-                        left: 8%;
+                        bottom: 0%;
+                        left: 5%;
                         background-image: url(./../assets/slide/home-fms-icon07.png);
                     }
                     #seivice-fms .imgWraper{
                         display: grid;
                         grid-template-columns: repeat(16, 1fr);
+                        margin-top: 50vh;
                     }
                     #seivice-fms .imgWrap{
                         grid-column: 2 / span 14; 
                         border-radius: 1rem;
                         background-image: url(./../assets/slide/fms-main.png);
-                        background-size: cover;
+                        background-size: 100%;
+                        /* background-size: cover; */
                         background-repeat: no-repeat;
-                        height: 45vh;
+                        /* height: 45vh; */
                         /* height: 100%; */
                         box-shadow:0 16px 32px 0 rgba(0,0,0,0.05),0 16px 32px 0 rgba(34, 26, 26, 0.05) !important;
-                    }
-                    @media (max-width: 992px) {
-                        #slide .imgWrap img{
-                            height: 100%;
-                        }                        
                     }
                     @media (min-width: 768px) {
                         /* #seivice-fms .contain{
@@ -237,38 +236,11 @@
                             transition: all .4s;
                         }
                         #seivice-fms .sParticle{
-                            margin-top: -32%; 
+                            /* margin-top: -32%;  */
                         }
                         #seivice-fms .imgWrap{
-                            grid-column: 4 / span 10; 
-                            height: 50vh;
-                        }
-                        #seivice-fms .icon-xl{
-                            width: 8vw;
-                            height: 8vw;
-                            border-radius: 2vw;
-                        }
-                        #seivice-fms .icon-lg{
-                            width: 5vw;
-                            height: 5vw;
-                            border-radius: 1vw;
-                        }
-                        #seivice-fms .icon-md{
-                            width: 5vw;
-                            height: 5vw;
-                            border-radius: .8vw;
-                        }
-                        #seivice-fms .icon04{
-                            top: 30%;
-                            right: 20%;
-                        }
-                        #seivice-fms .icon05{
-                            bottom: 15%;
-                            right: 15%;
-                        }
-                        #seivice-fms .icon06{
-                            top: 60%;
-                            left: 25%;
+                            grid-column: 2 / span 14; 
+                            /* height: 50vh; */
                         }
 
                     }
@@ -301,9 +273,21 @@
                             top: 0;
                             left: 0;
                         }
-                        #slide .imgWrap img{
-                            width: 100%;
-                        } 
+                        #seivice-fms .icon-xl{
+                            width: 8vw;
+                            height: 8vw;
+                            border-radius: 2vw;
+                        }
+                        #seivice-fms .icon-lg{
+                            width: 5vw;
+                            height: 5vw;
+                            border-radius: 1vw;
+                        }
+                        #seivice-fms .icon-md{
+                            width: 5vw;
+                            height: 5vw;
+                            border-radius: .8vw;
+                        }
 
                     }
                     @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){
@@ -341,7 +325,7 @@
                 <div class="wv-100 hv-100 bg-dark jScroll00">
                 </div>
                 <div class="wv-100 jScroll01 bg-light" id="slide">
-                    <div class="contain hv-100 mx-auto d-flex align-items-center" style="position:sticky; top: 0px;">
+                    <div class="contain hv-100 mx-auto d-flex align-items-center overflow-hidden" style="position:sticky; top: 0px;">
                         <div class="w-100 textWraper d-grid position-relative" >
                             <div class="textWrap lg-d-flex align-items-center justify-content-center ">
                                 <div class="textW">
@@ -420,8 +404,8 @@
                     </div>                    
                 </div>
                 <div class="wv-100 jScroll02 position-relative" id="seivice-fms">
-                    <div class="w-100 h-100 d-flex align-items-center position-absolute" style="top:0px; z-index: 1;">
-                        <div class="contain mx-auto">
+                    <div class="w-100 h-100 position-absolute" style="top:0px; z-index: 1;">
+                        <div class="contain mx-auto m144-t">
                             <div class="text-center">
                                 <div class="font-32 lg-font-48 xl-font-64 font-weight-bold text-black line-12 sm-p64-t sTextWrap">
                                     <span class="text-brand-green-400 sText01 jText">바로 오늘 출고</span> <br>
@@ -438,9 +422,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contain mx-auto position-sticky" style="top: 0px;z-index: -1;">
+                    <div class="contain mx-auto position-sticky " style="top: 0px;z-index: -1;">
                         <div class="w-100 h-100 text-center position-relative">
-                            <div class="w-100 sParticle jParticle" style="height: 60vh;">
+                            <div class="w-100 sParticle jParticle" style="height: 80vh;">
                                 <span class="icon icon01 icon-xl"></span>
                                 <span class="icon icon02 icon-xl"></span>
                                 <span class="icon icon03 icon-md"></span>
@@ -452,11 +436,11 @@
                             </div>
                         </div>
                     </div>  
-                    <div class="w-100 h-100 d-flex align-items-center position-absolute" style="top:0px; z-index: -2;">
+                    <div class="w-100 d-flex align-items-center position-absolute" style="top:0px; z-index: -2;">
                         <div class="contain mx-auto d-flex align-items-end">
                             <div class="w-100 sUI jUI">
                                 <div class="imgWraper">
-                                    <div class="w-100 imgWrap" alt="자동화 연동 사이트">
+                                    <div class="w-100 h-100 imgWrap" alt="자동화 연동 사이트">
                                     </div>
                                 </div>                                   
                             </div>                            
