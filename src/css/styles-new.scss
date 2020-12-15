@@ -541,14 +541,17 @@ body{
     .contain {
         width: calc(100vw - 3.5rem);
     }
-    .sm{
+    .xs{
         @include commonStyle()
-    }    
+    }   
 }
 @media (min-width: 576px) {
     .contain {
         width: calc(100vw - 14rem);
     }
+    .sm{
+        @include commonStyle()
+    }      
 }
 // 패드
 @media (min-width: 768px) {
