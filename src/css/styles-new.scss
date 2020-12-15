@@ -1,0 +1,675 @@
+
+@import './normalize.css';
+@import './all.css';
+@import './short.scss';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+html{
+    font-size: 10px;
+    overflow-x: hidden;
+}
+body{
+    font-size: 1.6rem;
+    font-family: 'Roboto','Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+    margin: 0;
+}
+
+// 폰트
+.text{
+	&-ink{
+		color: $ink;
+	}
+	&-black{
+		color: $ink;
+	}
+	&-body{
+		color: $body;
+    }
+	&-bodyLighter{
+		color: $bodyLighter;
+    }    
+	&-muted{
+		color: $muted !important;
+    }    
+	&-form{
+		color: $form !important;
+    }     
+    &-border{
+		color: $border !important;
+    }  
+	&-lighter{
+		color: $lighter !important;
+    }  
+	&-light{
+		color: $light !important;
+    }  
+    &-brand-green{
+        color: $brand-green;
+    }  
+    &-brand-green-100{
+        color: $brand-green-100;
+    }  
+    &-brand-green-400{
+        color: $brand-green-400;
+    }  
+    &-brand-deepGreen{
+        color: $brand-deepGreen;
+    }  
+    &-primary{
+		color: $primary !important;
+    }       
+    &-primary-w{
+		color: $primary-w !important;
+    }  
+
+}
+@mixin textAlign() {
+    &-center{
+        text-align: center;
+    } 
+    &-left{
+        text-align: left;
+    } 
+    &-right{
+        text-align: right;
+    }    
+}
+.text{
+    @include textAlign()      
+}
+.font-weight{
+    &-light{
+        font-weight: $font-weight-light;
+    }
+    &-lighter{
+        font-weight: $font-weight-lighter;
+    }
+    &-normal{
+        font-weight: $font-weight-normal;
+    }
+    &-med{
+        font-weight: $font-weight-med;
+    }
+    &-bolder{
+        font-weight: $font-weight-bolder;
+    }
+    &-bold{
+        font-weight: $font-weight-bold;
+    }
+}
+.line{
+    &-12{
+        line-height:1.2;
+    }
+    &-15{
+        line-height:1.5;
+    }   
+}
+@mixin fontSize() {
+    &-80{
+        font-size: 8rem;
+    } 
+    &-72{
+        font-size: 7.2rem;
+    } 
+    &-64{
+        font-size: 6.4rem;
+    } 
+    &-56{
+        font-size: 5.6rem;
+    } 
+    &-48{
+        font-size: 4.8rem;
+    } 
+    &-40{
+        font-size: 4rem;
+    }  
+    &-32{
+        font-size: 3.2rem;
+    } 
+    &-28{
+        font-size: 2.8rem;
+    } 
+    &-24{
+        font-size: 2.4rem;
+    } 
+    &-20{
+        font-size: 2rem;
+    }  
+    &-18{
+        font-size: 1.8rem;
+    }  
+    &-16{
+        font-size: 1.6rem;
+    } 
+    &-14{
+        font-size: 1.4rem;
+    } 
+    &-12{
+        font-size: 1.2rem;
+    } 
+    &-11{
+        font-size: 1.1rem;
+    }
+}
+.font-20, .font-24, .font-28, .font-32, .font-40, .font-48 .font-56, .font-64{
+    letter-spacing: -2px;
+}
+.font-12, .font-11{
+    font-family: '맑은고딕', 'Sans-serif' !important;
+}
+.font{
+    @include fontSize() 
+}
+// 배경
+.bg{
+	&-ink{
+		background-color: $ink !important;
+	}
+	&-black{
+		background-color: $ink !important;
+    }
+	&-dark{
+		background-color: $dark !important;
+	}
+	&-body{
+		background-color: $body !important;
+    }
+	&-muted{
+		background-color: $muted !important;
+    }    
+	&-form{
+		background-color: $form !important;
+    }     
+    &-border{
+		background-color: $border !important;
+    }  
+	&-lighter{
+		background-color: $lighter !important;
+    }  
+	&-light{
+		background-color: $light !important;
+    }   
+	&-white{
+		background-color: white !important;
+    }  
+    &-brand-green{
+        color: $brand-green;
+    }  
+    &-brand-deepGreen{
+        color: $brand-green;
+    }   
+    &-primary{
+		background-color: $primary !important;
+    }       
+    &-primary-w{
+		background-color: $primary-w !important;
+    }           
+}
+
+// 간격
+//md-m3-b 뷰-사이즈-방향
+@mixin marginStyle($value) {
+    &-t{
+        margin-top: $value;
+    }
+    &-r{
+        margin-right: $value;
+    }
+    &-b{
+        margin-bottom: $value;
+    }
+    &-l{
+        margin-left: $value;
+    }
+    &x{
+        margin-left: $value !important;
+        margin-right: $value !important;
+    }
+}      
+@mixin paddingStyle($value) {
+    &-t{
+        padding-top: $value !important;
+    }
+    &-r{
+        padding-right: $value !important;
+    }
+    &-b{
+        padding-bottom: $value !important;
+    }
+    &-l{
+        padding-left: $value !important;
+    }
+    &x{
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+}  
+@mixin marginAutoStyle() {
+    &l-auto, &x-auto{
+        margin-left: auto !important;
+    }  
+    &r-auto, &x-auto{
+        margin-right: auto !important;
+    } 
+}
+@mixin paddingAutoStyle() {
+    &l-auto, &x-auto{
+        padding-left: auto !important;
+    }  
+    &r-auto, &x-auto{
+        padding-right: auto !important;
+    } 
+}
+
+@mixin marginHandle() { 
+    &0{
+        @include marginStyle(0rem);
+    }  
+    &8{
+        @include marginStyle(0.8rem);
+    }  
+    &16{
+        @include marginStyle(1.6rem);
+    }  
+    &24{
+        @include marginStyle(2.4rem);
+    }  
+    &32{
+        @include marginStyle(3.2rem);
+    } 
+    &48{
+        @include marginStyle(4.8rem);
+    }  
+    &64{
+        @include marginStyle(6.4rem);
+    }  
+    &96{
+        @include marginStyle(9.6rem);
+    } 
+    &144{
+        @include marginStyle(14.4rem);
+    }  
+    @include marginAutoStyle();
+}
+.m{
+   @include marginHandle() 
+}
+
+@mixin paddingHandle() {
+    &0{
+        @include paddingStyle(0rem);
+    }  
+    &8{
+        @include paddingStyle(0.8rem);
+    }  
+    &16{
+        @include paddingStyle(1.6rem);
+    }  
+    &24{
+        @include paddingStyle(2.4rem);
+    }  
+    &32{
+        @include paddingStyle(3.2rem);
+    } 
+    &48{
+        @include paddingStyle(4.8rem);
+    }  
+    &64{
+        @include paddingStyle(6.4rem);
+    }  
+    &96{
+        @include paddingStyle(9.6rem);
+    } 
+    &144{
+        @include paddingStyle(14.4rem);
+    }  
+}
+.p{
+    @include paddingHandle()
+}
+
+//사이즈
+@mixin widthStyle() {
+    &-100{
+        width: 100%;
+    }
+    &v-100{
+        width: 100vw;
+    }
+}   
+@mixin heightStyle() {
+    &-100{
+        height: 100%;
+    }
+    &v-100{
+        height: 100vh;
+    }
+}   
+.w{
+    @include widthStyle()
+}
+.h{
+    @include heightStyle()
+}  
+
+//보더
+.border{
+    border:1px solid $border;
+}
+// 라운드
+.rounded{
+    &-pill{
+        border-radius: 50rem!important;
+    }
+}
+//디스플레이
+@mixin displayStyle() {
+    &-inline-block{
+        display: inline-block;
+    }
+    &-block{
+        display: block;
+    }  
+    &-flex{
+        display: flex;
+        
+    }
+    &-grid{
+        display: grid;
+    }  
+    &-none{
+        display: none;
+    }  
+}
+.d{
+    @include displayStyle()
+}
+// 포지션
+@mixin positionStyle() {
+    &-relative{
+        position: relative;
+    }
+    &-absolute{
+        position: absolute;
+    }
+    &-sticky{
+        position: sticky;
+    }
+}
+.position{
+    @include positionStyle()
+}
+//플렉스
+@mixin alignStyle() {
+    &-items-center {
+        align-items: center!important;
+    }
+    &-items-end {
+        align-items: flex-end!important;
+    }
+}
+@mixin flexStyle() {
+    &-column {
+        flex-direction:column!important;
+    }
+
+}
+ 
+.flex{
+    @include flexStyle()
+}
+.align{
+    @include alignStyle()
+}
+
+@mixin justifyStyle() {
+    &-content-center{
+        justify-content: center;
+    }
+}
+.justify{
+    @include justifyStyle()
+}
+
+//버튼
+.btn{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .7rem 1.2rem;
+    font-size: 1.6rem !important;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    &-sm{
+        font-size: 1.4rem !important;
+        padding: 1.2rem 2rem;
+    }
+    &-lg{
+        padding: 1.2rem 2rem;
+    }
+}
+//엘리먼트
+// 아이콘
+.i.font-11, .i.font-12{
+    font-family: 'Font Awesome 5 Brands' !important;
+}
+// 인디케이터
+.indicator{
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+}
+// 링크
+.sLink{
+    position: relative;
+    cursor: pointer;
+}
+.sLink .line{
+    display: inline-block;
+    width: 100%;
+    height: 1px;   
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: $border; 
+}
+.sLink .line::after{
+    content: '';
+    display: inline-block;
+    width: 0%;
+    height: 1px;   
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+    background-color: $dark;   
+    transition: all 0.2s;
+}
+.sLink{
+    &:hover{
+        .line::after{
+            width: 100%;         
+        }
+    }
+}
+// 커서
+.cursor{
+    &-pointer{
+        cursor:pointer;
+    }
+}
+@mixin commonStyle() {
+    &-font{
+        @include fontSize();
+    }
+    &-m{
+        @include marginHandle()  
+    }
+    &-p{
+        @include paddingHandle()  
+    } 
+    &-w{
+        @include widthStyle()
+    }
+    &-h{
+        @include heightStyle()
+    }   
+    &-text{
+        @include textAlign()   
+    }
+    &-d{
+        @include displayStyle()
+    }
+}
+//레이아웃
+//모바일
+@media (max-width: 576px) {
+    body{
+        font-size: 1.4rem;
+    }
+    .contain {
+        width: calc(100vw - 3.5rem);
+    }
+    .sm{
+        @include commonStyle()
+    }    
+}
+@media (min-width: 576px) {
+    .contain {
+        width: calc(100vw - 14rem);
+    }
+}
+// 패드
+@media (min-width: 768px) {
+    .contain {
+        width: calc(100vw - 14rem);
+    }
+    .md{
+        @include commonStyle()
+    }
+}
+//웹
+@media (min-width: 992px) {
+    .contain {
+        width: calc(100vw - 11rem);
+    }
+    .lg{
+        @include commonStyle()
+    }
+}
+@media (min-width: 1200px) { 
+    .contain {
+        width: calc(100vw - 18rem);
+    }
+    .xl{
+        @include commonStyle()
+    }
+}
+@media (min-width: 1600px) {
+    .contain {
+        width: calc(100vw - 36rem);
+        max-width: 1560px;
+    }
+}
+//상단
+// #header{
+//     width: 100%;
+//     position: relative;
+//     #nav{
+//         display: flex;
+//         align-items: center;
+//         width: 100%;
+//         .logo{
+//             font-weight: $font-weight-med;
+//             text-decoration: none;
+//             color: $ink;
+//         }
+//         .menu{
+//             margin-left: auto;
+//         }        
+//     }
+//     #nav-web{
+//         position: absolute;
+//         top: 0px;
+//         right: 0px;
+//         display: flex;
+//         align-items: center;
+//         margin-left: auto;
+//         a{
+//             font-weight: $font-weight-med;
+//             text-decoration: none;
+//         }
+//         //a:not(:last-child)
+//         a:last-child{
+//             margin-right: 0;
+//         }
+//     }    
+// }
+
+// @media (max-width:576px) { 
+
+//     #nav{
+//         height: 4.5em;
+//         .logo{
+//             font-size: 1.75rem;
+//         }
+//         .menu {
+//             font-size: 1.5rem;
+//             visibility: visible;
+//         } 
+//     }
+//     #nav-web{
+//         visibility: hidden;
+//     }
+// }
+// @media (min-width:576px) {
+
+//     #nav{
+//         height: 6em;
+//         .logo{
+//             font-size: 2.5rem;
+//         }
+//         .menu {
+//             font-size: 1.75rem;
+//             visibility: visible;
+//         } 
+//     }
+//     #nav-web{
+//         visibility: hidden;
+//     }
+// }
+// @media (min-width: 768px) {
+
+//     #nav{
+//       .menu {
+//         visibility: visible;
+//       } 
+//     }
+// }
+// @media (min-width: 992px) {
+
+//     #nav{
+//         .menu {
+//             visibility: hidden;
+//         } 
+//     }
+//     #nav-web{
+//         visibility: visible;
+//         height: 6em;
+//         a{
+//             font-size: 1rem;
+//             margin-right: 2em;
+//         }        
+//     }  
+// }

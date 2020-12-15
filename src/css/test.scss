@@ -1,0 +1,54 @@
+@mixin paddingStyle($value) {
+    &-t{
+        padding-top: $value;
+    }
+    &-r{
+        padding-right: $value;
+    }
+    &-b{
+        padding-bottom: $value;
+    }
+    &-l{
+        padding-left: $value;
+    }
+}  
+@mixin paddingAutoStyle() {
+    &l-auto, &x-auto{
+        padding-left: 0 auto;
+    }  
+    &r-auto, &x-auto{
+        margin-right: 0 auto;
+    } 
+}
+@mixin padding() {
+    .p{  
+        &8{
+            @include paddingStyle(0.8rem);
+        }  
+        &16{
+            @include paddingStyle(1.6rem);
+        }  
+        &24{
+            @include paddingStyle(2.4rem);
+        }  
+        &32{
+            @include paddingStyle(3.2rem);
+        } 
+        &48{
+            @include paddingStyle(4.8rem);
+        }  
+        &64{
+            @include paddingStyle(6.4rem);
+        }  
+        &96{
+            @include paddingStyle(9.6rem);
+        } 
+        &144{
+            @include paddingStyle(14.4rem);
+        }  
+    
+        @include paddingAutoStyle();
+    }  
+}
+//이거야
+@include padding()

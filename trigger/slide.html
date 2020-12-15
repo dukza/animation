@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <!-- 스타일시트 -->
+                <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+                <link rel="stylesheet" type="text/css" href="./../src/css/styles-new.css">
+                <!-- 제이쿼리 -->
+                <script src="./../src/js/jquery-2.2.1.js"></script>
+                <script type="text/javascript" src="./../src/js/jquery.easing.1.3.js"></script> 
+                <!-- 레이아웃 제이쿼리 -->
+                <script type="text/javascript" src="./../src/js/layout.js"></script>
+                
+                <style>
+                    #slide .tabWraper .active{
+                        background-color: #33B679;
+                        color: white;
+                    }
+                    #slide .tabWraper .active::after,#slide .tabWraper span:last-child::after{
+                        background-color: transparent;
+                    }
+                    #slide .tabWraper{
+                        position: relative;
+                    }
+                    
+                    #slide .tabWrap{
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        bottom: 40px;
+                        z-index: 2;
+                    }
+                    #slide .tabWraper .tab{
+                        border-radius: 50rem;
+                        position: relative;
+                        background-color: transparent;
+                        /* border: 1px solid gray; */
+                        z-index: 2;
+                        margin-right: 1.2rem;
+                        padding-left: 1.6rem;
+                        padding-right: 1.6rem;
+                    }
+                    #slide .tabWraper .active{
+                        position: absolute;
+                        border-radius: 50rem;
+                        top: 0px;
+                        height: 38px;
+                        left: 0px;
+                        z-index: 1;
+                        padding: 0px;
+                        transition: all 0.4s;
+                    }
+                    #slide .tabWraper .tab::after{
+                        position: absolute;
+                        top:50%;
+                        right: -10px;
+                        margin-top: -2px;
+                        content: '';
+                        display: inline-block;
+                        width: 4px;
+                        height: 4px;
+                        background-color: #eee;
+                        border-radius: 50rem;
+                    }
+                    #slide .tab:nth-child(4n){
+                        margin-right: 0;
+                    }
+                    #slide .tab:nth-child(4n)::after{
+                        display: none;
+                    }
+                    #slide .textWraper{
+                        grid-template-columns: repeat(2, 1fr)
+                    }
+                    #slide .textWrap{
+                        grid-column: 1 / span 2;
+                    }
+                    #slide .textW{
+                        grid-column-end: span 9;
+                    }
+                    #slide .textWrap .elemA{
+                        height: 56px;
+                        position: relative;
+                    }
+                    #slide .textWrap .elem{
+                        height: 100%;
+                        position: absolute;
+                        top: 0px;
+                        width: 100%;
+                        opacity: 0;
+                        transition: all 0.4s;
+                    }
+                    #slide .textWrap .elem:first-child, #slide .imgWraper .elem:first-child{
+                        opacity: 1;
+                    }
+                    #slide .imgWraper{
+                        position: relative;
+                        text-align: center;
+                        display: flex;
+                        z-index: -1;
+                    }
+                    #slide .imgWrap{
+                        width: 100%;
+                        text-align: center;
+                        min-height: 300px;
+                    }
+                    #slide .imgWrap img{
+                        width: 100%;
+                        max-width: 300px;
+                        /* border:1px solid gray; */
+                    }
+                    #seivice-fms .contain{
+                        height: 100vh;
+                        transition: position 0.4s;
+                    }
+                    #seivice-fms .sParticle{
+                        position: absolute;
+                        top:50%;
+                        margin-top: -75%; 
+                        z-index: -2;
+                        transform-origin: bottom center;
+                    }
+                    #seivice-fms .sCon{
+                        position: absolute;
+                        top:0px;
+                        z-index: -2;
+                        /* transition: z-index 0.4s; */
+                        /* max-width: 1280px; */
+
+                        /* margin-top: 0%;  */
+                    }
+                    /* #seivice-fms img{
+                        border-radius: 16px;
+                        
+                    } */
+                    /* 패드 */
+                    /* @keyframes fadeRightText {
+                        0% {
+                        opacity: 0;
+                        clip-path: inset(0% 100% 0% 0%);
+                        }
+                        100% {
+                        opacity: 1;
+                        clip-path: inset(0% 0% 0% 0%);
+                        }
+                    } */
+                    #seivice-fms .icon{
+                        position: absolute;
+                        box-shadow:0 8px 16px 0 rgba(0,0,0,0.05),0 8px 16px 0 rgba(34, 26, 26, 0.05) !important;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    #seivice-fms .icon-xl{
+                        width: 12vw;
+                        height: 12vw;
+                        border-radius: 2vw;
+                    }
+                    #seivice-fms .icon-lg{
+                        width: 10vw;
+                        height: 10vw;
+                        border-radius: 1vw;
+                    }
+                    #seivice-fms .icon-md{
+                        width: 8vw;
+                        height: 8vw;
+                        border-radius: .8vw;
+                    }
+                    #seivice-fms .icon01{
+                        top: 0%;
+                        left: 0%;
+                        background-image: url(./../assets/slide/home-fms-icon03.png);
+                    }
+                    #seivice-fms .icon02{
+                        top: 10%;
+                        right: 0%;
+                        background-image: url(./../assets/slide/home-fms-icon01.png);
+                    }
+                    #seivice-fms .icon03{
+                        top: 10%;
+                        left: 30%;
+                        background-image: url(./../assets/slide/home-fms-icon05.png);
+
+                    }
+                    #seivice-fms .icon04{
+                        top: 25%;
+                        right: 25%;
+                        background-image: url(./../assets/slide/home-fms-icon02.png);
+
+                    }
+                    #seivice-fms .icon05{
+                        bottom: 15%;
+                        right: 15%;
+                        background-image: url(./../assets/slide/home-fms-icon08.png);
+
+                    }
+                    #seivice-fms .icon06{
+                        top: 65%;
+                        left: 18%;
+                        background-image: url(./../assets/slide/home-fms-icon04.png);
+                    }
+                    #seivice-fms .icon07{
+                        bottom: 10%;
+                        left: 8%;
+                        background-image: url(./../assets/slide/home-fms-icon07.png);
+                    }
+                    #seivice-fms .imgWraper{
+                        display: grid;
+                        grid-template-columns: repeat(16, 1fr);
+                    }
+                    #seivice-fms .imgWrap{
+                        grid-column: 2 / span 14; 
+                        border-radius: 1rem;
+                        background-image: url(./../assets/slide/fms-main.png);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        height: 45vh;
+                        /* height: 100%; */
+                        box-shadow:0 16px 32px 0 rgba(0,0,0,0.05),0 16px 32px 0 rgba(34, 26, 26, 0.05) !important;
+                    }
+                    /* @media (max-width: 768px) {
+                        #seivice-fms .sParticle{
+                            margin-top: -20%; 
+                        }
+                    } */
+                    @media (min-width: 768px) {
+                        /* #seivice-fms .contain{
+                            height: 100vh;
+                        } */
+                        #seivice-fms .contain{
+                            transition: all .4s;
+                        }
+                        #seivice-fms .sParticle{
+                            margin-top: -32%; 
+                        }
+                        #seivice-fms .imgWrap{
+                            grid-column: 4 / span 10; 
+                            height: 50vh;
+                        }
+                        #seivice-fms .icon-xl{
+                            width: 8vw;
+                            height: 8vw;
+                            border-radius: 2vw;
+                        }
+                        #seivice-fms .icon-lg{
+                            width: 5vw;
+                            height: 5vw;
+                            border-radius: 1vw;
+                        }
+                        #seivice-fms .icon-md{
+                            width: 5vw;
+                            height: 5vw;
+                            border-radius: .8vw;
+                        }
+                        #seivice-fms .icon04{
+                            top: 30%;
+                            right: 20%;
+                        }
+                        #seivice-fms .icon05{
+                            bottom: 15%;
+                            right: 15%;
+                        }
+                        #seivice-fms .icon06{
+                            top: 60%;
+                            left: 25%;
+                        }
+
+                    }
+                    /* 웹 */
+                    @media (min-width: 992px) {
+                        #slide .textWraper{
+                            grid-template-columns: repeat(16, 1fr);
+                            
+                        }
+                        #slide .textWrap{
+                            grid-column: 9 / span 8; 
+                            height: 640px;
+                        }
+                        #slide .textW{
+                            grid-column-end: span 9;
+                        }
+                        #slide .textWrap .msgA{
+                            height: 72px;
+                            position: relative;
+                        }
+
+                        #slide .imgWraper{
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -300px;
+                            height: 600px;
+                            left: 0;
+                        }
+                        #slide .imgWrap{
+                            position: absolute;
+                            width: 600px;
+                            top: 0;
+                            left: 0;
+                        }
+                        #slide .imgWrap img{
+                            width: 100%;
+                            max-width: 600px;
+                        } 
+
+                    }
+                    @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){
+                        #seivice-fms .imgWrap{
+                            background-image: url(./../assets/slide/fms-main_3x.png);
+                        }
+                        #seivice-fms .icon01{
+                            background-image: url(./../assets/slide/home-fms-icon03_2x.png);
+                        }
+                        #seivice-fms .icon02{
+                            background-image: url(./../assets/slide/home-fms-icon01_2x.png);
+                        }
+                        #seivice-fms .icon03{
+                            background-image: url(./../assets/slide/home-fms-icon05_2x.png);
+
+                        }
+                        #seivice-fms .icon04{
+                            background-image: url(./../assets/slide/home-fms-icon02_2x.png);
+
+                        }
+                        #seivice-fms .icon05{
+                            background-image: url(./../assets/slide/home-fms-icon08_2x.png);
+
+                        }
+                        #seivice-fms .icon06{
+                            background-image: url(./../assets/slide/home-fms-icon04_2x.png);
+                        }
+                        #seivice-fms .icon07{
+                            background-image: url(./../assets/slide/home-fms-icon07_2x.png);
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="wv-100 hv-100 bg-dark jScroll00">
+                </div>
+                <div class="wv-100 jScroll01 bg-light" id="slide">
+                    <div class="contain hv-100 mx-auto d-flex align-items-center" style="position:sticky; top: 0px;">
+                        <div class="w-100 textWraper d-grid position-relative" >
+                            <div class="textWrap d-flex align-items-center justify-content-center ">
+                                <div class="textW">
+                                    <div class="font-32 md-font-48 lg-font-64 font-weight-bolder line-12 text-center">
+                                        <span class="text-brand-green-400">쉽고 편한</span><br> 원클릭 물류 서비스.
+                                    </div>     
+                                    <div class="vw-100 vh-100 imgWraper elemB sm-m24-t">
+                                        <div class="vh-100 imgWrap">
+                                            <div class="elem a">
+                                                <img src="./../assets/slide/1.png" alt="입고">
+                                            </div>
+                                            <div class="elem b">
+                                                <img src="./../assets/slide/2.png" alt="보관">
+                                            </div>
+                                            <div class=" elem c">
+                                                <img src="./../assets/slide/3.png" alt="피킹패킹">
+                                            </div>
+                                            <div class=" elem d">
+                                                <img src="./../assets/slide/4.png" alt="배송">
+                                            </div>
+                                        </div>
+                                    </div>                                      
+
+                                    <div class="sm-m24-t m16-b md-m96-t md-m64-b text-center elemA stiky">
+                                        <div class="elem a">
+                                            <div class="font-24 md-font-32 lg-font-40 font-weight-med line-11 md-m8-b">
+                                                꼼꼼한 입고검수 
+                                            </div>
+                                            <div class="font-14 md-font-20 text-muted">
+                                                입고 즉시 상품의 정보를 데이터화 합니다.
+                                            </div>                                            
+                                        </div>
+                                        <div class="elem b">
+                                            <div class="font-24 md-font-32 lg-font-40 font-weight-med line-11 md-m8-b">
+                                            최적화된 보관
+                                            </div>
+                                            <div class="sm-font-14 md-font-20 text-muted">
+                                                로케이션 추천 솔루션으로 보관 비용을 최소화 합니다.
+                                            </div>                                            
+                                        </div>
+                                        <div class="elem c">
+                                            <div class="font-24 md-font-32 lg-font-40 font-weight-med line-11 md-m8-b">
+                                            정확한 피킹패킹
+                                            </div>
+                                            <div class="sm-font-14 md-font-20 text-muted">
+                                                피킹패킹의 전과정을 바코드로 관리 합니다.
+                                            </div>                                            
+                                        </div>
+                                        <div class="elem d">
+                                            <div class="font-24 md-font-32 lg-font-40 font-weight-med line-11 md-m8-b">
+                                            최저가 배송
+                                            </div>
+                                            <div class="sm-font-14 md-font-20 text-muted">
+                                                파스토 고객이여서 가능한 최저가 배송비입니다.
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="text-center m48-b lg-m96-b">
+                                        <div class="bg-white rounded-pill d-inline-block positon-relative tabWraper">
+                                            <span class="btn font-weight-med text-white tab">입고</span>
+                                            <span class="btn font-weight-med tab">보관</span>
+                                            <span class="btn font-weight-med tab">피킹패킹</span>
+                                            <span class="btn font-weight-med tab">배송</span>                                           
+                                            <span class="btn active" style="width: 62px;"></span>   
+                                        </div>                                
+                                    </div>                                      
+                                    <div class="font-weight-med text-center">
+                                        <div class="text-body sLink d-inline-block">서비스 동영상 보기
+                                            <div class="line"></div>
+                                        </div>
+                                    </div>
+                                </div>      
+                            </div>
+                        </div>
+
+                    </div>                    
+                </div>
+                <div class="wv-100 jScroll02 position-relative" id="seivice-fms">
+                    <div class="w-100 h-100 d-flex align-items-center position-absolute" style="top:0px; z-index: 1;">
+                        <div class="contain mx-auto">
+                            <div class="text-center">
+                                <div class="font-32 md-font-48 lg-font-64 font-weight-bold text-black line-12 sm-p64-t sTextWrap">
+                                    <span class="text-brand-green-400 sText01 jText">바로 오늘 출고</span> <br>
+                                    <span class="sText02 jText">쇼핑몰 주문연동 자동화</span> 
+                                </div>
+                                <div class="font-16 md-font-20 p8-t md-p16-t text-muted">네이버 스마트스토어, 사방넷, 고도몰, 샵링커 주문 데이터를<br class="sm-d-none"> 실시간으로 제공해드립니다.</div>
+                                <div class="p48-t p24-b">
+                                    <div class="font-weight-med text-center">
+                                        <div class="text-body sLink d-inline-block">사용법 보기
+                                            <div class="line"></div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contain mx-auto position-sticky" style="top: 0px;z-index: -1;">
+                        <div class="w-100 h-100 text-center position-relative">
+                            <div class="w-100 sParticle jParticle" style="height: 60vh;">
+                                <span class="icon icon01 icon-xl"></span>
+                                <span class="icon icon02 icon-xl"></span>
+                                <span class="icon icon03 icon-md"></span>
+                                <span class="icon icon04 icon-md"></span>
+                                <span class="icon icon05 icon-lg"></span>
+                                <span class="icon icon06 icon-lg"></span>
+                                <span class="icon icon07 icon-md"></span>
+                                <!-- <img class="w-100" src="./../assets/slide/fms-connect-site.png" alt="fms UI"> -->
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="w-100 h-100 d-flex align-items-center position-absolute" style="top:0px; z-index: -2;">
+                        <div class="contain mx-auto d-flex align-items-end">
+                            <div class="w-100 sUI jUI">
+                                <div class="imgWraper">
+                                    <div class="w-100 imgWrap" alt="자동화 연동 사이트">
+                                    </div>
+                                </div>                                   
+                            </div>                            
+                        </div>
+                    </div>                               
+                </div>
+                <div class="wv-100 hv-100 bg-dark jScroll03">
+                </div>
+            </body>
+            <script type="text/javascript" src="./../src/js/scroll.js"></script>
+</html>
