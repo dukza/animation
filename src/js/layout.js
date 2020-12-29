@@ -21,6 +21,7 @@ Common.prototype._init = function(selector) {
     this.$selector = $(selector);
     this.$bgChange = this.$selector.find('.js-bgChange');
     this.$slider = this.$selector.find('.js-slider');
+    this.$select = this.$selector.find('.jSelect');
     this.$layer = this.$selector.find('.js-layer');
     this.$progressBar = this.$selector.find('.js-progressBar');
     this.$career = this.$selector.find('#career');
@@ -37,8 +38,7 @@ Common.prototype._init = function(selector) {
     
 
     // 슬라이드 slider
-    this.$slide = this.$selector.find('.js-slide');
-    this.$slideMenu = this.$selector.find('[data-wrap="sider"] .menu');
+    this.$selectMenu = this.$selector.find('[data-wrap="sider"] .menu');
 
     this.$listWrap = this.$selector.find('.js-listWrap');
     this.$listIcon = this.$selector.find('.js-listWrap .icon');
@@ -119,9 +119,9 @@ Common.prototype._iniEvent = function() {
     })
 
 
-    this.$slideMenu.on({
+    this.$selectMenu.on({
         click:function(){
-            objThis._navActive(objThis.$slideMenu,$(this));
+            objThis._navActive(objthis.$selectMenu,$(this));
         }
     })
     
@@ -162,7 +162,7 @@ Common.prototype._iniEvent = function() {
             }, 500);
         }
     }) 
-    this.$slide.on({
+    this.$select.on({
         click:function(e){
             e.preventDefault();
             let target = $(this).data('target');
@@ -180,11 +180,10 @@ Common.prototype._iniEvent = function() {
                 $(this).toggleClass("active");
                 wrap.toggleClass("active");
                 $('window,body').toggleClass("overflow-hidden");
-                let moveTo = location.offset().top + location.height();
-                console.log(moveTo);
+                let moveTo = $(objThis.$select).outerHeight();
+                console.log('moveTo',moveTo);
                 if(wrap.hasClass('active')) {
-                    //wrap.slideUp("fast");
-
+                    wrap.slideUp("fast");
                     wrap.fadeIn()
                     .css({top:1000})
                     .animate({top:moveTo}, 300, function() {

@@ -40,11 +40,13 @@
         {
             //2
             type: "sticky",
-            heightNum: 3,
+            heightNum: 1.5,
             scrollHeight: 0,
             objs: {
                 container: document.querySelector('.jScroll02'),
-                descImg: document.querySelector('.jScroll02 .desc_img'),
+                contain: document.querySelector('.jScroll02 .contain'),
+                elemA: document.querySelector(".jScroll02 .jParticle"),
+                elemC: document.querySelector(".jScroll02 .jUI"),
             },
             // [적용 값,적용 값, 적용 지점]
             values: {
@@ -53,7 +55,10 @@
                 //a 같은 시점
                 // [value,value,{위치}]
                 // elemA_opacity_down: [1, 0, { start: 0.1, end: 0.9 }],
-                descImg_down: [0, 1,{ start: 0, end: 1 }],
+                elemA_translateY_down: [1, 50,{ start: 0.1, end: 0.3 }],
+                elemA_scale_down: [1, 0.7,{ start: 0.1, end: 0.3 }],
+                elemA_opacity_down: [1, 0,{ start: 0.1, end: 0.3 }],
+                elemC_scale_down: [1, 1.2,{ start: 0.1, end: 0.3 }],
             }
         },   
         {
@@ -178,16 +183,15 @@
             } 
             break;
         case 2:
-            if (scrollRatio > 0 && scrollRatio < 1) {
-                // down  
-                objs.descImg.style.position = `fixed`; 
-                objs.descImg.style.transform = `scale(${calcValues(values.descImg_down, currentYOffset)})`;   
-                objs.descImg.style.opacity = calcValues(values.descImg_down, currentYOffset);   
-                  
-            }else{
-                objs.descImg.style.position = `absolute`; 
+            if (scrollRatio > 0 && scrollRatio <= 0.31) {
+                // down
+                objs.elemA.style.transform = `translate3d(0,${calcValues(values.elemA_translateY_down, currentYOffset
+                )}%,0) scale(${calcValues(values.elemA_scale_down, currentYOffset)})`;   
+                objs.elemA.style.opacity = calcValues(values.elemA_opacity_down, currentYOffset);   
+                objs.elemC.style.transform = `scale(${calcValues(values.elemC_scale_down, currentYOffset)})`;   
+            }else if(scrollRatio > 0.21 && scrollRatio <= 1){
+                objs.elemA.style.opacity = 0;   
             }
-
             break;
         }
     }

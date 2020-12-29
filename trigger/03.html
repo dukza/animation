@@ -14,7 +14,6 @@
         <script src="./../src/js/TweenMax.min.js"></script>
         <script src="./../src/js/animation.gsap.min.js"></script>
         <script src="./../src/js/debug.addIndicators.min.js"></script>
-        <script src="./../src/js/scroll.js"></script>
         <!-- tilt -->
         <!-- <script src="./../src/tilt/tilt.jquery.js"></script> -->
         <!-- 레이아웃 제이쿼리 -->
@@ -82,17 +81,24 @@
             @media (max-width: 768px){
                 .slider [data-wrap="sider"] {
                     position: fixed;
+
+                    left: 0px;
                     bottom:0px;
                     z-index: 90;
                     overflow: auto;
-                     background-color: black;
+                    background-color: black;
                 }
                 .slider [data-wrap="sider"] [data-name="sider"] {
                     display: none;
                 }  
                 .slider [data-wrap="sider"].active [data-name="sider"] {
                     display: block;
-                }   
+                }  
+                .sSelect{
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                } 
             }
 
 
@@ -113,7 +119,7 @@
                     <div class="row">
                         <div class="col-12 mt--6 mb--2 mb-md--3 search js-search">
                             <div class="row no-gutters">
-                                <div class="col-12 h4 text-ink border-dark-bottom d-flex align-items-center" style="height: 72px; border-width: 2px !important;">
+                                <div class="col-12 h4 sm-font-24 text-ink border-dark-bottom d-flex align-items-center" style="height: 72px; border-width: 2px !important;">
                                     <span class="px-2"><i class="fas fa-search icon"></i></span>
                                     <input class="h-100 w-100 border-0" type="text" placeholder="궁금한 것을 검색해 보세요"></input>
                                     <span class="ml-auto px-2"><i class="fas fa-arrow-right"></i></span>
@@ -121,12 +127,9 @@
                             </div>
                         </div>    
                         <div class="col-12 mb--2 mb-md--3 d-block d-md-none" data-location="sider">
-                            <div class="row">
-                                <div class="col-12 text-muted font-14 font-weight-bolder mb-2">
-                                    카테고리에서 찾기
-                                </div>
+                            <div class="row"></div>
                                 <div class="col-12 mb-3">
-                                    <a class="btn w-100 text-left border-dark rounded-md p-3 d-flex align-items-center js-slide" data-target="sider" href=""><span class="h5 text-ink mb-0">서비스 이용</span><i class="fas fa-sort-down icon ml-auto"></i></a>
+                                    <a class="btn w-100 text-left border-dark rounded-md p-3 d-flex align-items-center sSelect jSelect" data-target="sider" href=""><span class="h5 text-ink mb-0">서비스 이용</span><i class="fas fa-sort-down icon ml-auto"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +137,7 @@
                             <div class="row ">
                                 <div class="col-12 col-md-3" data-wrap="sider">
                                     <div class="row">
-                                        <div class="col-12 pt-3 pb-3">
+                                        <div class="col-12">
                                             <div class="row h-100" data-name="sider">
                                                 <div class="col-12 "><span class="menu active"></span></div>
                                                 <div class="col-12"><span class="menu"></span></div>
