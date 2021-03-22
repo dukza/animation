@@ -121,7 +121,7 @@ Common.prototype._iniEvent = function() {
 
     this.$selectMenu.on({
         click:function(){
-            objThis._navActive(objthis.$selectMenu,$(this));
+            objThis._navActive(objThis.$selectMenu,$(this));
         }
     })
     
@@ -297,9 +297,14 @@ Common.prototype._toggleList = function () {
 // }
 
 Common.prototype._navActive = function (obj,tar) {
-    console.log('11')
-    obj.removeClass('active');
-    tar.addClass('active');
+    
+    if(tar.hasClass('active')) {
+        tar.removeClass('active');
+    }else{
+        obj.removeClass('active');
+        tar.addClass('active');
+    }
+    
 }
 // Common.prototype._partScroll = function(winScroll,windowScrollTop){
 //     const objThis = this;
