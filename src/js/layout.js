@@ -183,7 +183,7 @@ Common.prototype._iniEvent = function() {
                 let moveTo = $(objThis.$select).outerHeight();
                 console.log('moveTo',moveTo);
                 if(wrap.hasClass('active')) {
-                    wrap.slideUp(10);
+                    wrap.slideUp(0);
                     wrap.fadeIn(10)
                     .css({top:1000})
                     .animate({top:moveTo}, 300, function() {
@@ -193,7 +193,7 @@ Common.prototype._iniEvent = function() {
 
                 }else{
                     //wrap.slideDown("fast");
-                    wrap.fadeIn(10)
+                    wrap.fadeIn(0)
                     .css({top:moveTo})
                     .animate({top: 1000}, 300, function() {
                         //callback
