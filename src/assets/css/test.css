@@ -1,0 +1,135 @@
+.p8-t {
+  padding-top: 0.8rem;
+}
+
+.p8-r {
+  padding-right: 0.8rem;
+}
+
+.p8-b {
+  padding-bottom: 0.8rem;
+}
+
+.p8-l {
+  padding-left: 0.8rem;
+}
+
+.p16-t {
+  padding-top: 1.6rem;
+}
+
+.p16-r {
+  padding-right: 1.6rem;
+}
+
+.p16-b {
+  padding-bottom: 1.6rem;
+}
+
+.p16-l {
+  padding-left: 1.6rem;
+}
+
+.p24-t {
+  padding-top: 2.4rem;
+}
+
+.p24-r {
+  padding-right: 2.4rem;
+}
+
+.p24-b {
+  padding-bottom: 2.4rem;
+}
+
+.p24-l {
+  padding-left: 2.4rem;
+}
+
+.p32-t {
+  padding-top: 3.2rem;
+}
+
+.p32-r {
+  padding-right: 3.2rem;
+}
+
+.p32-b {
+  padding-bottom: 3.2rem;
+}
+
+.p32-l {
+  padding-left: 3.2rem;
+}
+
+.p48-t {
+  padding-top: 4.8rem;
+}
+
+.p48-r {
+  padding-right: 4.8rem;
+}
+
+.p48-b {
+  padding-bottom: 4.8rem;
+}
+
+.p48-l {
+  padding-left: 4.8rem;
+}
+
+.p64-t {
+  padding-top: 6.4rem;
+}
+
+.p64-r {
+  padding-right: 6.4rem;
+}
+
+.p64-b {
+  padding-bottom: 6.4rem;
+}
+
+.p64-l {
+  padding-left: 6.4rem;
+}
+
+.p96-t {
+  padding-top: 9.6rem;
+}
+
+.p96-r {
+  padding-right: 9.6rem;
+}
+
+.p96-b {
+  padding-bottom: 9.6rem;
+}
+
+.p96-l {
+  padding-left: 9.6rem;
+}
+
+.p144-t {
+  padding-top: 14.4rem;
+}
+
+.p144-r {
+  padding-right: 14.4rem;
+}
+
+.p144-b {
+  padding-bottom: 14.4rem;
+}
+
+.p144-l {
+  padding-left: 14.4rem;
+}
+
+.pl-auto, .px-auto {
+  padding-left: 0 auto;
+}
+
+.pr-auto, .px-auto {
+  margin-right: 0 auto;
+}
