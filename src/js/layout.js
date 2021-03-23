@@ -177,7 +177,7 @@ Common.prototype._iniEvent = function() {
             //   height: $(window).height() - (location.offset().top + location.height()),
               
             // })
-            if($(window).width()<768){
+            if($(window).width()<=768){
                 $(this).toggleClass("active");
                 wrap.toggleClass("active");
                 $('window,body').toggleClass("overflow-hidden");
@@ -303,7 +303,7 @@ Common.prototype._navActive = function (obj,tar) {
         tar.addClass('active');
     }
 
-    if($(window).width()<768){
+    if($(window).width()<=768){
         let wrap = $('[data-wrap="sider"]');
         let moveTo = $('.active').outerHeight();
 
