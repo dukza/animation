@@ -105,7 +105,7 @@ Common.prototype._iniEvent = function() {
 
             },
             resize:function(){
-                if($(window).width()>768){
+                if($(window).width()>1025){
                     $('[data-wrap="sider"]').css({
                         top:'auto'
                     })
@@ -176,7 +176,7 @@ Common.prototype._iniEvent = function() {
             //   height: $(window).height() - (location.offset().top + location.height()),
               
             // })
-            if($(window).width()<768){
+            if($(window).width()<1025){
                 $(this).toggleClass("active");
                 wrap.toggleClass("active");
                 $('window,body').toggleClass("overflow-hidden");
