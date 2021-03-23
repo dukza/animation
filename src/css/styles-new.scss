@@ -512,6 +512,7 @@ body{
         cursor:pointer;
     }
 }
+//공통화 작업
 @mixin commonStyle() {
     &-font{
         @include fontSize();

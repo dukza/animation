@@ -202,17 +202,14 @@ Common.prototype._iniEvent = function() {
                     
                 }
             }
-
-              
-
-            
             // name.slideDown({
             //     height:'toggle'       
             // }) 
 
         }
     })
-
+    
+   
     this.$listWrap.on({
         click:function(e){
             e.preventDefault();
@@ -304,7 +301,19 @@ Common.prototype._navActive = function (obj,tar) {
         obj.removeClass('active');
         tar.addClass('active');
     }
-    
+
+    let wrap = $('[data-wrap="sider"]');
+    let moveTo = $('.active').outerHeight();
+
+    wrap.toggleClass("active");
+
+    if(!wrap.hasClass('active')) {
+        wrap.fadeIn(0)
+        .css({top:moveTo})
+        .animate({top: 1000}, 300, function() {
+            //callback
+        });
+    }
 }
 // Common.prototype._partScroll = function(winScroll,windowScrollTop){
 //     const objThis = this;
