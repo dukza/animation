@@ -105,7 +105,7 @@ Common.prototype._iniEvent = function() {
 
             },
             resize:function(){
-                if($(window).width()>1025){
+                if($(window).width()>768){
                     $('[data-wrap="sider"]').css({
                         top:'auto'
                     })
@@ -122,6 +122,7 @@ Common.prototype._iniEvent = function() {
     this.$selectMenu.on({
         click:function(){
             objThis._navActive(objThis.$selectMenu,$(this));
+
         }
     })
     
@@ -176,7 +177,7 @@ Common.prototype._iniEvent = function() {
             //   height: $(window).height() - (location.offset().top + location.height()),
               
             // })
-            if($(window).width()<1025){
+            if($(window).width()<768){
                 $(this).toggleClass("active");
                 wrap.toggleClass("active");
                 $('window,body').toggleClass("overflow-hidden");
@@ -302,17 +303,19 @@ Common.prototype._navActive = function (obj,tar) {
         tar.addClass('active');
     }
 
-    let wrap = $('[data-wrap="sider"]');
-    let moveTo = $('.active').outerHeight();
+    if($(window).width()<768){
+        let wrap = $('[data-wrap="sider"]');
+        let moveTo = $('.active').outerHeight();
 
-    wrap.toggleClass("active");
+        wrap.toggleClass("active");
 
-    if(!wrap.hasClass('active')) {
-        wrap.fadeIn(0)
-        .css({top:moveTo})
-        .animate({top: 1000}, 300, function() {
-            //callback
-        });
+        if(!wrap.hasClass('active')) {
+            wrap.fadeIn(0)
+            .css({top:moveTo})
+            .animate({top: 1000}, 300, function() {
+                //callback
+            });
+        }
     }
 }
 // Common.prototype._partScroll = function(winScroll,windowScrollTop){
